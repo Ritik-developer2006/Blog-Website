@@ -1,0 +1,9 @@
+.banner-overlay{
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    filter: brightness(0.35);
+    background-image: url("../img/banner.jpg");
+}
