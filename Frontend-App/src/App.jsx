@@ -32,7 +32,7 @@ function App() {
               </span>
             </h2>
             <div className='flex gap-5 mt-5'>
-              <button onClick={openModal} data-aos="fade-right" type="button" className="group cursor-pointer relative flex items-center justify-center overflow-hidden rounded-0 bg-orange-400 px-5 py-2 font-medium text-neutral-200 hover:shadow hover:shadow-md hover:shadow-orange-300">
+              <button onClick={openModal} data-aos="fade-right" type="button" className="group cursor-pointer relative flex items-center justify-center border border-black overflow-hidden rounded-0 bg-orange-400 px-5 py-2 font-medium text-neutral-200 hover:shadow hover:shadow-md hover:shadow-orange-300 hover:border-0">
                 <span className='flex justify-center'>
                   <i className="fa-solid fa-plus mr-1 text-sm mt-1"></i>
                   <span className="hidden md:flex text-sm">New Blog</span>
@@ -41,7 +41,7 @@ function App() {
                   <div className="relative h-full w-8 bg-white/20"></div>
                 </div>
               </button>
-              <button data-aos="fade-left" type="button" className="group cursor-pointer relative inline-flex items-center justify-center overflow-hidden rounded-0 px-5 py-2 bg-black font-medium text-neutral-200 hover:shadow hover:shadow-md hover:shadow-black">
+              <button data-aos="fade-left" type="button" className="group cursor-pointer relative inline-flex items-center justify-center overflow-hidden border border-orange-400 rounded-0 px-5 py-2 bg-black font-medium text-neutral-200 hover:shadow hover:shadow-md hover:shadow-black hover:border-0">
                 <span className='flex justify-center'>
                   <i className="fa-solid fa-square-rss mr-2 text-md mt-1"></i>
                   <span className="hidden md:flex text-sm">My Blogs</span>

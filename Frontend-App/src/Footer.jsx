@@ -11,11 +11,11 @@ function Footer() {
                         <p>&copy; Copyright 2017 <a className="color" href="#">MyBlogs</a></p>
                     </div>
                     {/* <!-- social --> */}
-                    <div className="flex">
-                        <div><a href="#" target="_blank"><i className="fa fa-facebook"></i></a></div>
-                        <div><a href="#" target="_blank"><i className="fa fa-twitter"></i></a></div>
-                        <div><a href="#" target="_blank"><i className="fa fa-linkedin"></i></a></div>
-                        <div><a href="#" target="_blank"><i className="fa fa-instagram"></i></a></div>
+                    <div className="flex gap-2">
+                        <div><a href="#" target="_blank"><i class="ri-facebook-circle-fill text-lg"></i></a></div>
+                        <div><a href="#" target="_blank"><i class="ri-instagram-line text-lg"></i></a></div>
+                        <div><a href="#" target="_blank"><i class="ri-linkedin-fill text-lg"></i></a></div>
+                        <div><a href="#" target="_blank"><i class="ri-github-fill text-lg"></i></a></div>
                     </div>
                 </div>
             </footer>
