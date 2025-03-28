@@ -28,20 +28,24 @@ function App() {
             <h2 className="type-line typing text-white text-3xl mt-5">
               I'm Professional
               <span className="type-wrap text-orange-400 ps-2">
-                <span className="is-active">Ui/Ux Designer</span>
-                <span>Web Developer</span>
-                <span>Creative Director</span>
+                <span className="is-active">Full-Stack Developer</span>
               </span>
             </h2>
             <div className='flex gap-5 mt-5'>
-              <button onClick={openModal} data-aos="fade-right" type="button" className="group cursor-pointer relative flex py-2 items-center justify-center overflow-hidden rounded-md bg-orange-400 px-4 font-medium text-neutral-200">
-                <span className='flex justify-center items-center'><i className="fa-solid fa-plus mr-1"></i><span className="hidden md:flex">New Blog</span></span>
+              <button onClick={openModal} data-aos="fade-right" type="button" className="group cursor-pointer relative flex items-center justify-center overflow-hidden rounded-0 bg-orange-400 px-5 py-2 font-medium text-neutral-200 hover:shadow hover:shadow-md hover:shadow-orange-300">
+                <span className='flex justify-center'>
+                  <i className="fa-solid fa-plus mr-1 text-sm mt-1"></i>
+                  <span className="hidden md:flex text-sm">New Blog</span>
+                </span>
                 <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
                   <div className="relative h-full w-8 bg-white/20"></div>
                 </div>
               </button>
-              <button data-aos="fade-left" type="button" className="group cursor-pointer relative inline-flex py-2 items-center justify-center overflow-hidden rounded-md px-4 bg-black font-medium text-neutral-200">
-                <span className='flex justify-center items-center'><i className="fa-solid fa-square-rss mr-2"></i><span className="hidden md:flex">All Blogs</span></span>
+              <button data-aos="fade-left" type="button" className="group cursor-pointer relative inline-flex items-center justify-center overflow-hidden rounded-0 px-5 py-2 bg-black font-medium text-neutral-200 hover:shadow hover:shadow-md hover:shadow-black">
+                <span className='flex justify-center'>
+                  <i className="fa-solid fa-square-rss mr-2 text-md mt-1"></i>
+                  <span className="hidden md:flex text-sm">My Blogs</span>
+                </span>
                 <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
                   <div className="relative h-full w-8 bg-white/20"></div>
                 </div>
