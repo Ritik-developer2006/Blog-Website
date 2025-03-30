@@ -69,9 +69,23 @@ const Modal = ({ isOpen, onClose }) => {
         }
 
         // valiadtion for photo
-        if (!formData.photo) {
-            newValidationErrors.photo = "Upload photo releted to this blog!";
+        if (!formData.photo || formData.photo.length === 0) {
+            newValidationErrors.photo = "Upload photo related to this blog!";
             hasError = true;
+        } else {
+            const file = formData.photo[0];
+            const allowedTypes = ["image/png", "image/jpg", "image/jpeg"];
+            const maxSize = 5 * 1024 * 1024; // 5 MB
+    
+            if (!allowedTypes.includes(file.type)) {
+                newValidationErrors.photo = "Only JPG, JPEG, PNG files are allowed!";
+                hasError = true;
+            } else if (file.size > maxSize) {
+                newValidationErrors.photo = "File size must be less than 5 MB!";
+                hasError = true;
+            } else {
+                newValidationErrors.photo = '';
+            }
         }
 
         // Update validation errors state
@@ -80,7 +94,7 @@ const Modal = ({ isOpen, onClose }) => {
         if (!hasError) {
             setIsButtonHidden(true);
             setIsButtonLoader(false);
-            toast.success('Blog Uploaded successfully!');
+            toast.success('Blog uploaded successfully!');
             console.log('Blog detail:', formData);
             setTimeout(() => {
                 window.location.reload();
@@ -152,9 +166,10 @@ const Modal = ({ isOpen, onClose }) => {
             const maxSize = 5 * 1024 * 1024; // 5 MB
             if (!allowedTypes.includes(file.type)) {
                 newValidationErrors.photo = "Only JPG, JPEG, PNG files are allowed!";
-            }
-            if (file.size > maxSize) {
+            } else if (file.size > maxSize) {
                 newValidationErrors.photo = "File size must be less than 5 MB!";
+            } else {
+                newValidationErrors.photo = '';
             }
         } else {
             newValidationErrors.photo = '';
