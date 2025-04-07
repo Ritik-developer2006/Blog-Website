@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const Modal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
+    const generateRandomString = () => {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        for (let i = 0; i < 10; i++) {
+          const randomIndex = Math.floor(Math.random() * characters.length);
+          result += characters[randomIndex];
+        }
+        return result;
+      };
+
     const [formData, setFormData] = useState({
+        bid: generateRandomString(),
         fullName: "",
         email: "",
         photo: null,
@@ -24,7 +36,7 @@ const Modal = ({ isOpen, onClose }) => {
     const [isButtonHidden, setIsButtonHidden] = useState(false);
     const [isButtonLoader, setIsButtonLoader] = useState(true);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         setvalidationErrors({
@@ -76,7 +88,7 @@ const Modal = ({ isOpen, onClose }) => {
             const file = formData.photo[0];
             const allowedTypes = ["image/png", "image/jpg", "image/jpeg"];
             const maxSize = 5 * 1024 * 1024; // 5 MB
-    
+
             if (!allowedTypes.includes(file.type)) {
                 newValidationErrors.photo = "Only JPG, JPEG, PNG files are allowed!";
                 hasError = true;
@@ -94,11 +106,27 @@ const Modal = ({ isOpen, onClose }) => {
         if (!hasError) {
             setIsButtonHidden(true);
             setIsButtonLoader(false);
-            toast.success('Blog uploaded successfully!');
-            console.log('Blog detail:', formData);
-            setTimeout(() => {
-                window.location.reload();
-            }, 3000);
+            // console.log('Blog detail:', formData);
+            try {
+                // Send the POST request to Django API
+                const response = await axios.post('http://127.0.0.1:8000/blogs/api/v1/blogs/', formData, {
+                    headers: {
+                        'Content-Type': 'application/json', // Ensure content-type is set to application/json
+                    },
+                });
+
+                // Handle response from API
+                if (response.status === 201) {
+                    toast.success('Blog uploaded successfully!');
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000);
+                }
+            } catch (error) {
+                toast.error('Something was wrong, try again!');
+                setIsButtonHidden(false);
+                setIsButtonLoader(true);
+            }
         }
 
         if (hasError) {

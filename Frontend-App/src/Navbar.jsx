@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 import classNames from 'classnames';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -24,8 +25,16 @@ function Navbar() {
                 <div className='flex justify-between items-center h-full'>
                     <div className='text-xl font-bold font-mono text-orange-400'>MyBlogs</div>
                     <div className='hidden sm:flex gap-5'>
-                        <div className='cursor-pointer hover:text-orange-400 font-medium'><i className="fa-solid fa-house mr-1 text-sm"></i>Home</div>
-                        <div className='cursor-pointer hover:text-orange-400 font-medium'><i className="fa-brands fa-blogger-b mr-1 text-md"></i>Blogs</div>
+                        <div className='cursor-pointer hover:text-orange-400 font-medium'>
+                            <Link to="/">
+                                <i className="fa-solid fa-house mr-1 text-sm"></i>Home
+                            </Link>
+                        </div>
+                        <div className='cursor-pointer hover:text-orange-400 font-medium'>
+                            <Link to="/blogs">
+                                <i className="fa-brands fa-blogger-b mr-1 text-md"></i>Blogs
+                            </Link>
+                        </div>
                     </div>
                     <div className='flex sm:hidden'>
                         <i className="fa-solid fa-bars" onClick={toggleNavbar}></i>
@@ -47,8 +56,16 @@ function Navbar() {
                     </div>
                     <div className="flex flex-col gap-1 justify-between h-full pt-3">
                         <div className='flex flex-col gap-1'>
-                            <div className='cursor-pointer hover:text-orange-400 font-medium'><i className="fa-solid fa-house mr-1 text-sm"></i>Home</div>
-                            <div className='cursor-pointer hover:text-orange-400 font-medium'><i className="fa-brands fa-blogger-b mr-1 text-md"></i>Blogs</div>
+                            <div className='cursor-pointer hover:text-orange-400 font-medium'>
+                                <Link to="/">
+                                    <i className="fa-solid fa-house mr-1 text-sm"></i>Home
+                                </Link>
+                            </div>
+                            <div className='cursor-pointer hover:text-orange-400 font-medium'>
+                                <Link to="/blogs">
+                                    <i className="fa-brands fa-blogger-b mr-1 text-md"></i>Blogs
+                                </Link>
+                            </div>
                         </div>
                         <div className="flex-fill flex justify-between pb-3">
                             <div><a href="#" target="_blank"><i className="ri-facebook-circle-fill text-lg"></i></a></div>
@@ -58,7 +75,7 @@ function Navbar() {
                         </div>
                     </div>
                 </div>
-            </header>
+            </header >
         </>
     )
 }
