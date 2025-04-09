@@ -21,4 +21,7 @@
     transform: translateX(0); /* Slide in */
     transition: transform 0.4s ease-out;
   }
+.active{
+  color: #ff8904;
+}
   

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router';
+import { NavLink, Link } from 'react-router';
 import classNames from 'classnames';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -26,14 +26,14 @@ function Navbar() {
                     <div className='text-xl font-bold font-mono text-orange-400'>MyBlogs</div>
                     <div className='hidden sm:flex gap-5'>
                         <div className='cursor-pointer hover:text-orange-400 font-medium'>
-                            <Link to="/">
+                            <NavLink to="/">
                                 <i className="fa-solid fa-house mr-1 text-sm"></i>Home
-                            </Link>
+                            </NavLink>
                         </div>
                         <div className='cursor-pointer hover:text-orange-400 font-medium'>
-                            <Link to="/blogs">
+                            <NavLink to="/blogs">
                                 <i className="fa-brands fa-blogger-b mr-1 text-md"></i>Blogs
-                            </Link>
+                            </NavLink>
                         </div>
                     </div>
                     <div className='flex sm:hidden'>
@@ -57,14 +57,14 @@ function Navbar() {
                     <div className="flex flex-col gap-1 justify-between h-full pt-3">
                         <div className='flex flex-col gap-1'>
                             <div className='cursor-pointer hover:text-orange-400 font-medium'>
-                                <Link to="/">
+                                <NavLink to="/">
                                     <i className="fa-solid fa-house mr-1 text-sm"></i>Home
-                                </Link>
+                                </NavLink>
                             </div>
                             <div className='cursor-pointer hover:text-orange-400 font-medium'>
-                                <Link to="/blogs">
+                                <NavLink to="/blogs">
                                     <i className="fa-brands fa-blogger-b mr-1 text-md"></i>Blogs
-                                </Link>
+                                </NavLink>
                             </div>
                         </div>
                         <div className="flex-fill flex justify-between pb-3">
