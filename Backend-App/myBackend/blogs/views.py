@@ -1,5 +1,3 @@
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
 from rest_framework import viewsets
 from blogs.models import Blogs
 from blogs.serializers import blogSerializers

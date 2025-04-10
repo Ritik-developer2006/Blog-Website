@@ -68,7 +68,7 @@ function Blog() {
                                 <div key={blog.id} className="border hover:shadow hover:shadow-lg cursor-pointer border-gray-200 p-2">
                                     <div>
                                         <div className="overflow-hidden">
-                                            <img className="h-50 w-100 object-cover transition duration-500 ease-in-out hover:brightness-50 hover:scale-125" src={blog.imageUrl || "https://docs.material-tailwind.com/img/team-3.jpg"} alt="profile-picture" />
+                                            <img className="h-50 w-100 object-cover transition duration-500 ease-in-out hover:brightness-50 hover:scale-125" src={blog.photo || "https://docs.material-tailwind.com/img/team-3.jpg"} alt="profile-picture" />
                                         </div>
                                         <div className='flex flex-col sm:flex-row justify-start sm:justify-between'>
                                             <div className='text-start pt-0 text-gray-500 font-semibold uppercase'>
