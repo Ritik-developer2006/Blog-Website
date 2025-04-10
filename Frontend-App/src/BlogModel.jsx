@@ -38,7 +38,7 @@ const BlogModal = ({ isOpen, onClose, blog }) => {
             <div className="bg-black text-white rounded-0 shadow shadow-sm w-2xl shadow-white" data-aos="flip-up">
                 <div className='flex justify-between items-center border-b pr-4 pl-4 pt-2 pb-2'>
                     <div>
-                        <div className="text-md font-semibold">Blog Details</div>
+                        <div className="text-md font-semibold">Blog Detail</div>
                     </div>
                     <div>
                         <i className="fa-solid fa-xmark cursor-pointer" onClick={onClose}></i>

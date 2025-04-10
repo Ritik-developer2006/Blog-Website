@@ -24,7 +24,7 @@ function Home() {
             <div id="home" className="banner-layout">
                 <div className="banner-overlay"></div>
                 <div className="main-banner">
-                    <div className="banner-content relative flex flex-col justify-center items-center" style={{ height: "100vh" }}>
+                    <div className="banner-content relative flex flex-col justify-center items-center p-7" style={{ height: "100vh" }}>
                         <h1 className='text-4xl sm:text-5xl md:text-6xl font-bold text-orange-400 text-center' data-aos="zoom-in"><span className='text-4xl sm:text-5xl md:text-6xl font-normal text-white'>Hello, I'm</span> Ritik Kumar</h1>
                         <h2 className="type-line typing text-center text-white text-md sm:text-xl md:text-3xl mt-5">
                             Welcome to

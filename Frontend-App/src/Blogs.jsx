@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 import axios from 'axios';
-import AOS from "aos";
 import moment from 'moment';
 import BlogModal from './BlogModel.jsx';
 import './App.css';
@@ -34,14 +34,13 @@ function Blog() {
                 setLoading(false);
             }
         };
-
         fetchBlogs();
     }, []);
 
     return (
         <>
             <div id="home" className="banner-layout">
-                <div className="p-7 min-h-screen pt-24 flex justify-center items-center">
+                <div className="p-7 min-h-screen flex justify-center items-center">
                     {loading ? (
                         <div className='flex items-center'>
                             <div className="w-full me-2 place-items-center overflow-hidden rounded-lg">
@@ -67,7 +66,7 @@ function Blog() {
                             {blogs.map((blog) => (
                                 <div key={blog.id} className="border hover:shadow hover:shadow-lg cursor-pointer border-gray-200 p-2">
                                     <div>
-                                        <div className="overflow-hidden">
+                                        <div className="overflow-hidden border border-gray-200">
                                             <img className="h-50 w-100 object-cover transition duration-500 ease-in-out hover:brightness-50 hover:scale-125" src={blog.photo || "https://docs.material-tailwind.com/img/team-3.jpg"} alt="profile-picture" />
                                         </div>
                                         <div className='flex flex-col sm:flex-row justify-start sm:justify-between'>
@@ -105,7 +104,14 @@ function Blog() {
                             ))}
                         </div>
                     ) : (
-                        <div className='text-white'>No blogs available</div>
+                        <div className="flex flex-col items-center justify-center h-40 sm:h-64 bg-gray-100 rounded-md shadow-md p-7 sm:p-20">
+                            <div className="text-xl sm:text-6xl font-extrabold text-orange-500 mb-1">SORRY!</div>
+                            <div className="text-sm sm:text-lg font-medium text-gray-600">No blogs available</div>
+                            <div><Link to="/" className='text-xs sm:text-sm font-bold hover:text-orange-400'>
+                                Create Blog<i className="fa-solid fa-arrow-right ms-1"></i>
+                                </Link>
+                            </div>
+                        </div>
                     )}
                 </div>
             </div>

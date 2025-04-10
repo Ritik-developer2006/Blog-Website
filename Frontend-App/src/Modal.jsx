@@ -10,17 +10,17 @@ const Modal = ({ isOpen, onClose }) => {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let result = '';
         for (let i = 0; i < 10; i++) {
-          const randomIndex = Math.floor(Math.random() * characters.length);
-          result += characters[randomIndex];
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            result += characters[randomIndex];
         }
         return result;
-      };
+    };
 
     const [formData, setFormData] = useState({
         bid: generateRandomString(),
         fullName: "",
         email: "",
-        photo: null,
+        photo: "",
         blogTitle: "",
         blogDescription: "",
     });
@@ -107,11 +107,18 @@ const Modal = ({ isOpen, onClose }) => {
             setIsButtonHidden(true);
             setIsButtonLoader(false);
             // console.log('Blog detail:', formData);
+            const data = new FormData();
+            data.append('bid', formData.bid);
+            data.append('fullName', formData.fullName);
+            data.append('email', formData.email);
+            data.append('photo', formData.photo[0]);
+            data.append('blogTitle', formData.blogTitle);
+            data.append('blogDescription', formData.blogDescription);
             try {
                 // Send the POST request to Django API
-                const response = await axios.post('http://127.0.0.1:8000/blogs/api/v1/blogs/', formData, {
+                const response = await axios.post('http://127.0.0.1:8000/blogs/api/v1/blogs/', data, {
                     headers: {
-                        'Content-Type': 'application/json', // Ensure content-type is set to application/json
+                        'Content-Type': 'multipart/form-data',
                     },
                 });
 
@@ -223,7 +230,7 @@ const Modal = ({ isOpen, onClose }) => {
                         <i className="fa-solid fa-xmark cursor-pointer" onClick={onClose}></i>
                     </div>
                 </div>
-                <form action="#" method='POST' onSubmit={handleSubmit}>
+                <form action="#" method='POST' encType='multipart/form-data' onSubmit={handleSubmit}>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-5 p-4 overflow-auto' style={{ height: "400px" }}>
                         <div>
                             <label htmlFor="fullName" className="text-sm font-semibold mb-1">Full Name <span className='text-red-600'>*</span></label>
