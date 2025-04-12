@@ -52,7 +52,7 @@ function Blog() {
     return (
         <>
             <div id="home" className="">
-                <div className="p-7 min-h-screen flex justify-center items-center pt-23">
+                <div className="p-7 min-h-screen flex justify-center pt-23">
                     {loading ? (
                         <div className='flex items-center'>
                             <div className="w-full me-2 place-items-center overflow-hidden rounded-lg">
@@ -105,7 +105,7 @@ function Blog() {
                             </div>
                         </div>
                     ) : blogs.length > 0 ? (
-                        <div className="blog-container relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        <div className="blog-container relative grid grid-cols-2 items-center sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
                             {blogs.map((blog) => (
                                 <div key={blog.id} className="border hover:shadow hover:shadow-lg cursor-pointer border-gray-200 p-2">
                                     <div>
@@ -121,7 +121,7 @@ function Blog() {
                                             </div>
                                         </div>
                                         <div className="pt-0 text-start mt-1">
-                                            <div className="text-md mt-1 font-semibold text-slate-900 hover:text-orange-400">
+                                            <div className="text-md mt-1 font-semibold text-slate-900 hover:text-orange-400 line-clamp-1">
                                                 {blog.blogTitle}
                                             </div>
                                             <div className="text-gray-400 font-semibold mt-1 font-light line-clamp-2">

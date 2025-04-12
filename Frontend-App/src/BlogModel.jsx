@@ -55,8 +55,8 @@ const BlogModal = ({ isOpen, onClose, blog }) => {
                                 <div className="text-lg text-orange-400 font-semibold mb-3">{blogDetails.blogTitle}</div>
                             </div>
                             <div className='grid grid-cols-4 gap-4'>
-                                <div>
-                                    <img src={blogDetails.photo ? (blogDetails.photo) : "https://docs.material-tailwind.com/img/team-3.jpg"} alt="Blog" style={{ height: "150px", width: "500px" }} />
+                                <div className='overflow-hidden border border-gray-500'>
+                                    <img src={blogDetails.photo ? (blogDetails.photo) : "https://docs.material-tailwind.com/img/team-3.jpg"} className='transition duration-500 ease-in-out hover:brightness-50 hover:scale-125' alt="Blog" style={{ height: "150px", width: "500px" }} />
                                 </div>
                                 <div className='col-span-3 flex flex-col justify-between gap-4 p-0 m-0'>
                                     <div className="text-md p-0" style={{marginTop: "-7px"}}>{blogDetails.blogDescription}</div>
