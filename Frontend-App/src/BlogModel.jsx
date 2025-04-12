@@ -58,13 +58,13 @@ const BlogModal = ({ isOpen, onClose, blog }) => {
                                 <div>
                                     <img src={blogDetails.photo ? (blogDetails.photo) : "https://docs.material-tailwind.com/img/team-3.jpg"} alt="Blog" style={{ height: "150px", width: "500px" }} />
                                 </div>
-                                <div className='col-span-3 flex flex-col justify-between p-0 m-0'>
-                                    <div className="text-md p-0 m-0">{blogDetails.blogDescription}</div>
+                                <div className='col-span-3 flex flex-col justify-between gap-4 p-0 m-0'>
+                                    <div className="text-md p-0" style={{marginTop: "-7px"}}>{blogDetails.blogDescription}</div>
                                     <div className='flex justify-between'>
-                                        <div className='text-xs text-gray-400'>
-                                            {blogDetails.fullName}
+                                        <div className='text-xs text-gray-400 font-semibold uppercase'>
+                                           <span className='text-xs text-gray-400'>Post By :- </span> {blogDetails.fullName}
                                         </div>
-                                        <div className='text-xs text-gray-400'>
+                                        <div className='text-xs text-gray-400 uppercase font-semibold'>
                                             {moment(blogDetails.createdAt).fromNow().replace(/^in /, '')}
                                         </div>
                                     </div>
